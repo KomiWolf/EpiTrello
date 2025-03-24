@@ -1,0 +1,235 @@
+.workspace-settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.workspace-settings {
+    width: 100%;
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.workspace-settings h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #264653;
+}
+
+.workspace-section {
+    margin-bottom: 40px;
+}
+
+.workspace-settings-image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.workspace-section img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #34495e;
+    border-bottom: 2px solid #e1e5eb;
+    padding-bottom: 5px;
+}
+
+.workspace-settings label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.workspace-settings input,
+.workspace-settings textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    border: 1px solid #cfdce6;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9fafc;
+    color: #264653;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.workspace-settings textarea {
+    min-height: 100px;
+    resize: vertical;
+    overflow-y: hidden;
+}
+
+.workspace-settings input:focus,
+.workspace-settings textarea:focus {
+    border-color: #2a9df4;
+    outline: none;
+    box-shadow: 0 0 4px rgba(42, 157, 244, 0.3);
+}
+
+.workspace-settings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.workspace-settings li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e5eb;
+    color: #34495e;
+}
+
+.workspace-settings li:last-child {
+    border-bottom: none;
+}
+
+.manage-members-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #34495e;
+}
+
+.manage-members-table th,
+.manage-members-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #e1e5eb;
+}
+
+.manage-members-table th {
+    background-color: #2a9df4;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.manage-members-table tr:nth-child(even) {
+    background-color: #f9fafc;
+}
+
+.manage-members-table td {
+    vertical-align: middle;
+}
+
+.manage-members-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.manage-members-actions button {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.manage-members-actions button.remove {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.manage-members-actions button.remove:hover {
+    background-color: #c0392b;
+}
+
+.invite-button {
+    font-weight: bold;
+    background-color: #2a9df4;
+    color: white;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.invite-button:hover {
+    background-color: #1e81d3;
+    transform: translateY(-2px);
+}
+
+.invitation-profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.invitation-profile-container img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.invitation-profile-info p {
+    margin: 5px 0;
+}
+
+.workspace-settings button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.workspace-settings button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.workspace-settings button:active {
+    transform: translateY(0);
+}
+
+.save-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #2a9df4;
+    color: white;
+    font-weight: bold;
+}
+
+.save-button:hover {
+    background-color: #1e81d3;
+}
+
+.danger-zone {
+    background: #ffe6e6;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.danger-button {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+}
+
+.danger-button:hover {
+    background-color: #c0392b;
+}

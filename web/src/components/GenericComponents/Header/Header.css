@@ -1,0 +1,183 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 70px;
+    background-color: #007BFF;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.left-nav a,
+.left-nav span:not(.workspaces-popup span) {
+    font-weight: bold;
+    color: #f0f9ff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.left-nav a {
+    margin-right: 50px;
+    font-size: 1.6rem;
+}
+
+.left-nav span:not(.workspaces-popup span) {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.profile-container {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.profile-container span {
+    margin-right: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f0f9ff;
+    transition: color 0.3s ease;
+}
+
+.profile-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f0f9ff;
+    /* Bord doux */
+    transition: border-color 0.3s ease;
+}
+
+.workspaces-popup {
+    position: absolute;
+    top: 73px;
+    left: 194px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.workspace-container {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+}
+
+.list-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    color: #333;
+}
+
+.workspace-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.workspaces-popup li {
+    border-bottom: 1px solid #eee;
+}
+
+.workspaces-popup li:last-child {
+    border-bottom: none;
+}
+
+.workspaces-popup p {
+    font-size: 1rem;
+    color: black;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+.workspaces-display li {
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.workspaces-display li:hover {
+    background-color: #e3e8ec;
+}
+
+.profile-popup {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 220px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.workspaces-popup ul,
+.profile-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-popup li {
+    border-bottom: 1px solid #eee;
+    padding: 15px 15px;
+    color: #333;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-popup li:last-child {
+    border-bottom: none;
+}
+
+.profile-popup li:hover {
+    background-color: #f8f9fa;
+    color: #007BFF;
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        padding: 10px 20px;
+    }
+
+    .left-nav a {
+        font-size: 1.4rem;
+    }
+
+    .profile-popup {
+        width: 180px;
+    }
+
+    .workspaces-popup {
+        left: 100px;
+    }
+
+    .workspaces-display li {
+        font-size: 0.9rem;
+    }
+}

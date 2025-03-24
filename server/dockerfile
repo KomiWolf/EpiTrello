@@ -1,0 +1,54 @@
+FROM ubuntu:jammy-20240808
+
+ENV LOCATION=docker-server
+ENV DEBIAN_FRONTEND=noninteractive
+ENV HOME=/srv
+ENV ENV_NAME=server_env
+ENV LAUNCH_FILE=./src
+ENV HOST="0.0.0.0"
+ENV PORT=5000
+ENV DEBUG=False
+ENV LAUNCH_SERVER_ON_BOOT=True
+
+# Update de docker system
+RUN apt update -y && apt upgrade -y
+
+# Install tzdata and set the timezone to Europe/Paris
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    ln -fs /usr/share/zoneinfo/Europe/Paris /etc/localtime && \
+    dpkg-reconfigure --frontend noninteractive tzdata
+
+# Install mariadb dependencies
+RUN apt-get install -y \
+    libmariadb-dev
+
+# Install python in the container
+RUN apt install -y \
+    python3 \
+    python3-pip \
+    python3-dev \
+    python3-venv \
+    build-essential
+
+
+# Create working folder
+RUN mkdir -p ${HOME}
+
+# Go to the working folder
+WORKDIR ${HOME}
+
+# Copy the content of the backend into the container
+COPY . ${HOME}
+
+# Installing dependencies in the workspace
+RUN pip3 install -r ./requirements.txt
+
+# Run the setup code
+RUN make create_environement install_dependencies
+
+# Expose the ports that need to be used
+EXPOSE 1024-9000
+
+# Entry point
+CMD ["/bin/bash", "-c", "sleep 5s && cd $HOME && if [ \"${LAUNCH_SERVER_ON_BOOT,,}\" == 'true' ]; then if [ \"${DEBUG,,}\" == 'false' ];then python3 $LAUNCH_FILE --port=$PORT --host=$HOST;else python3 $LAUNCH_FILE --port=$PORT --host=$HOST --debug; fi; else /bin/bash; fi"]

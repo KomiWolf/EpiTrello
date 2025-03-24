@@ -1,0 +1,8 @@
+# Ignore the database cache
+cache/**
+!cache/.gitkeep
+# Ignore dbeaver cache
+**/.dbeaver/**
+.project
+
+.env

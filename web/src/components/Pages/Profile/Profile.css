@@ -1,0 +1,114 @@
+.profile-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eef3f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile-info-container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+}
+
+.profile-title-container {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #264653;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-photo {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #007BFF;
+    object-fit: cover;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.profile-field span {
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-field p {
+    color: #777;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 95%;
+    text-align: center;
+}
+
+.profile-button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile-button {
+    width: 48%;
+    background-color: #2a9df4;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-button:hover {
+    background-color: #1e81d3;
+    transform: translateY(-2px);
+}
+
+.profile-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .profile-info-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-title-container {
+        font-size: 1.5rem;
+    }
+
+    .profile-button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .profile-logout-container {
+        font-size: 0.8rem;
+    }
+}

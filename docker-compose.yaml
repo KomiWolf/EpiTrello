@@ -1,0 +1,77 @@
+services:
+  minio:
+    build:
+      context: ./s3
+      dockerfile: Dockerfile
+    tty: true
+    image: epi-trello-minio
+    container_name: et-minio
+    restart: always
+    env_file:
+      - ./s3/.env
+    ports:
+      - "9000:9000"
+      -  "9001:9001"
+    volumes:
+      - ./s3/cache:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - t-network
+
+  maria-db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    image: epi-trello-mariadb
+    container_name: et-mariadb
+    restart: always
+    env_file:
+      - ./db/.env
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db/cache:/var/lib/mysql
+    depends_on:
+      - minio
+    networks:
+      - t-network
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: epi-trello-server
+    container_name: et-server
+    restart: always
+    tty: true
+    env_file:
+      - ./server/.env
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server/:/srv/
+    depends_on:
+      - maria-db
+    networks:
+      - t-network
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    image: epi-trello-web
+    container_name: et-web
+    restart: always
+    tty: true
+    environment:
+      LAUNCH_COMMAND: "serve -s build -l 3000"
+    ports:
+      - "8080:3000"
+    depends_on:
+      - server
+    networks:
+      - t-network
+
+networks:
+  t-network:
+    driver: bridge

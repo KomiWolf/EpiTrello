@@ -1,0 +1,54 @@
+FROM node:latest
+
+ENV LOCATION=docker-web
+ENV DEBIAN_FRONTEND=noninteractive
+ENV HOME=/web
+ENV LAUNCH_COMMAND="serve -s build -l 3000"
+
+# Update the system
+RUN apt update && apt upgrade -y
+
+# Install npm and nodejs
+RUN apt install -y \
+    npm \
+    nodejs \
+    xsel
+
+# Cleaning any potential cache npm could have
+RUN npm cache clean --force
+
+# Installing latest version of npm
+RUN npm install -g npm@latest
+
+# Installing npm requirements
+RUN timeout 60s npm install -g \
+    serve \
+    react-icons \
+    recharts \
+    axios || timeout 60s npm install -g \
+    serve \
+    react-icons \
+    recharts \
+    axios
+
+# Create working folder
+RUN mkdir -p ${HOME}
+
+# Go to the working folder
+WORKDIR ${HOME}
+
+# Copy the content of the backend into the container
+COPY . ${HOME}
+
+# Run the setup code
+RUN timeout 60s npm install || timeout 60s npm install 
+RUN npm run build
+
+# Cleaning any potential cache npm could have
+RUN npm cache clean --force
+
+# Expose the ports that need to be used
+EXPOSE 1024-9000
+
+# Entry point
+CMD ["/bin/bash","-c", "${LAUNCH_COMMAND}" ]

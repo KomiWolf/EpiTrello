@@ -1,0 +1,6 @@
+# Ignore the database cache
+cache/**
+!cache/.gitkeep
+.minio.sys/**
+
+.env

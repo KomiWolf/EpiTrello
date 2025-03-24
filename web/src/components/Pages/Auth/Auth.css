@@ -1,0 +1,214 @@
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eef3f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.auth-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-title-container {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #264653;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-form-container input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #cfdce6;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9fafc;
+    color: #264653;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form-container input:focus {
+    border-color: #2a9df4;
+    outline: none;
+    box-shadow: 0 0 4px rgba(42, 157, 244, 0.3);
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.show-hide-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.show-hide-btn img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.show-hide-btn:hover img {
+    opacity: 1;
+}
+
+.error-message {
+    color: #e63946;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+.auth-button {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #2a9df4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-button:hover {
+    background-color: #1e81d3;
+    transform: translateY(-2px);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+.auth-go-to-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #6c7a89;
+}
+
+.auth-go-to-container span {
+    color: #2a9df4;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.auth-go-to-container span:hover {
+    color: #1e81d3;
+    text-decoration: underline;
+}
+
+.oauth-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.oauth-text {
+    font-size: 0.9rem;
+    color: #6c7a89;
+    margin-bottom: 10px;
+}
+
+.oauth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.oauth-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.oauth-button.google {
+    background-color: #4285F4;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.oauth-button.google:hover,
+.oauth-button.github:hover {
+    transform: translateY(-2px);
+}
+
+.oauth-button.google:active,
+.oauth-button.github:active {
+    transform: translateY(0);
+}
+
+.oauth-button.github {
+    background-color: #24292e;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .auth-form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .auth-form-container input {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .auth-title-container {
+        font-size: 1.8rem;
+    }
+
+    .auth-go-to-container {
+        font-size: 0.8rem;
+    }
+}
